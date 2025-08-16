@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bhoomi!</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+        overflow: hidden;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        color: #fff;
+    }
+    h1 {
+        margin-top: 20px;
+        font-size: 3rem;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        animation: fadeIn 2s ease-in-out forwards;
+    }
+    .gift-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 150px;
+        background: #ff3b3f;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        animation: pulse 2s infinite;
+        z-index: 10;
+
+    }
+
+   
+
+
+    .gift-lid {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        width: 150px;
+        height: 40px;
+        background: #d62828;
+        border-radius: 10px 10px 0 0;
+        transition: transform 1s ease-in-out;
+        transform-origin: bottom center;
+    }
+    .message-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        width: 90%;
+        max-width: 400px;
+        background: rgba(255,255,255,0.95);
+        color: #333;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        transition: transform 0.8s ease-in-out;
+        z-index: 20;
+        overflow: hidden;
+    }
+    .slideshow {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+        margin-top: 15px;
+        border-radius: 12px;
+        ali
+    }
+    .slideshow img {
+        width: 50%;
+        height: 251px;
+        object-fit: cover;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    .slideshow img.active {
+        opacity: 1;
+    }
+    .secret-btn {
+        margin-top: 15px;
+        background: #ff3b3f;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+    .secret-message {
+        display: none;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #e91e63;
+    }
+    .balloon, .heart {
+        position: absolute;
+        width: 30px;
+        height: 40px;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: floatUp 10s linear infinite;
+    }
+    .balloon { background: #ffeb3b; }
+    .heart {
+        background: #ff1744;
+        clip-path: polygon(50% 0%, 61% 17%, 75% 17%, 85% 30%, 85% 50%, 50% 100%, 15% 50%, 15% 30%, 25% 17%, 39% 17%);
+        width: 30px; height: 30px;
+    }
+    @keyframes floatUp {
+        from { transform: translateY(100vh) translateX(0); }
+        to { transform: translateY(-120vh) translateX(30px); }
+    }
+    @keyframes pulse {
+        0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        50% { transform: translate(-50%, -50%) scale(1.1); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    canvas {
+        position: absolute;
+        top:0;
+        left:0;
+        pointer-events: none;
+    }
+    .music-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff3b3f;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<h1>Happy Birthday Bhoomi! 🎉</h1>
+
+<audio id="popSound" src="pop.mp3"></audio>
+
+<audio id="bgMusic" src="song101.mp3" loop></audio>
+<button class="music-btn" id="musicBtn">🔊 Mute</button>
+
+<div class="gift-box" id="gift">
+    <div class="gift-lid" id="lid"></div>
+    <span class="gift-text">🎁 Click Me 🎁</span>
+</div>
+
+<div class="message-card" id="card">
+    <h2>My cute little Sister ❤️</h2>
+
+    <p><b>Tu meri sirf behen nahi, ek dost bhi hai jo hamesha mere saath khadi rahi. Har mushkil time mein support kiya, bina bole samjha, aur meri life ko bohot easy banaya. Itna pyaar diya, itni yaadein banayi aur full mazza kiya saath mein – seriously,
+
+
+Mujhe pata hai ki main aaj tere saath nahi hoon to celebrate bhi nhi kar paya, par mera pyaar aur blessings hamesha tere saath hain ❤️🤗
+haa me naraz hu tere se but iss point pe kuch matter nhi kartaa. Jitna bolu kaam hai bhene.
+shayad meri ye 3 din kee thoughts aur 2 din ki mehant raang layi ho and tried my best to make it .
+<br>Aur haan… cake ka ek slice mere liye bachana, nahi toh fight yaad rakhna🎂🎈<br>ohhh me bhul he gaya tha i me to diet pe hu😜</b></p>
+
+    <!-- Slideshow -->
+    <div class="slideshow" id="slideshow">
+        <img src="bm1.jpg" class="active">
+        <img src="bm2.jpg">
+        <img src="bm3.jpg">
+        <img src="bm4.jpg">
+        <img src="bm5.jpg">
+        <img src="bm6.jpg">
+        <img src="bm7.jpg">
+        <img src="bm8.jpg">
+    </div>
+
+    <!-- Secret Button -->
+    <button class="secret-btn" onclick="showSecret()">💖 Click for a Surprise</button>
+    <div class="secret-message" id="secretMsg">
+        Waheguru di mehar sada tere naal hove, har khushi tere kadam chume, te har pal tera roshan rahe. 💕
+        Bol,<br>
+        वाहेगुरु जी दा खालसा वाहेगुरु जी दी फतेह
+    </div>
+</div>
+
+<!-- Confetti + Fireworks canvas -->
+<canvas id="confetti"></canvas>
+<canvas id="fireworks"></canvas>
+
+<!-- Background Music -->
+<audio id="bgMusic" src="music101.mp3" loop></audio>
+
+<script>
+const gift = document.getElementById('gift');
+const lid = document.getElementById('lid');
+const card = document.getElementById('card');
+const confettiCanvas = document.getElementById('confetti');
+const confettiCtx = confettiCanvas.getContext('2d');
+const fireworksCanvas = document.getElementById('fireworks');
+const fwCtx = fireworksCanvas.getContext('2d');
+const music = document.getElementById('bgMusic');
+const musicBtn = document.getElementById('musicBtn');
+
+function resizeCanvas() {
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+    fireworksCanvas.width = window.innerWidth;
+    fireworksCanvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+// Floating shapes
+function createFloatingShape(type) {
+    const shape = document.createElement('div');
+    shape.className = type;
+    shape.style.left = Math.random() * 100 + 'vw';
+    shape.style.animationDuration = (6 + Math.random()*6) + 's';
+    document.body.appendChild(shape);
+    setTimeout(()=>shape.remove(), 12000);
+}
+setInterval(()=>createFloatingShape(Math.random()>0.5?'balloon':'heart'), 800);
+
+// Confetti
+const confettiParticles = [];
+function createConfetti() {
+    for(let i=0;i<150;i++){
+        confettiParticles.push({
+            x: Math.random()*confettiCanvas.width,
+            y: Math.random()*confettiCanvas.height - confettiCanvas.height,
+            r: Math.random()*6+2,
+            d: Math.random()*10+10,
+            color: `hsl(${Math.random()*360}, 100%, 50%)`
+        });
+    }
+}
+function drawConfetti(){
+    confettiCtx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+    confettiParticles.forEach(p=>{
+        confettiCtx.beginPath();
+        confettiCtx.fillStyle = p.color;
+        confettiCtx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+        confettiCtx.fill();
+    });
+    updateConfetti();
+    requestAnimationFrame(drawConfetti);
+}
+function updateConfetti(){
+    confettiParticles.forEach(p=>{
+        p.y += p.d/2;
+        p.x += Math.sin(p.y*0.05);
+        if(p.y>confettiCanvas.height){
+            p.y=-10; p.x=Math.random()*confettiCanvas.width;
+        }
+    });
+}
+drawConfetti();
+
+// Fireworks
+let fireworks = [];
+class Firework {
+    constructor(x,y,color){
+        this.x=x; this.y=y; this.color=color;
+        this.particles=[];
+        for(let i=0;i<50;i++){
+            this.particles.push({
+                x:this.x, y:this.y,
+                angle:Math.random()*2*Math.PI,
+                speed:Math.random()*4+2,
+                alpha:1
+            });
+        }
+    }
+    update(){
+        this.particles.forEach(p=>{
+            p.x += Math.cos(p.angle)*p.speed;
+            p.y += Math.sin(p.angle)*p.speed;
+            p.alpha -= 0.02;
+        });
+        this.particles = this.particles.filter(p=>p.alpha>0);
+    }
+    draw(){
+        this.particles.forEach(p=>{
+            fwCtx.fillStyle = `rgba(${this.color},${p.alpha})`;
+            fwCtx.beginPath();
+            fwCtx.arc(p.x,p.y,2,0,Math.PI*2);
+            fwCtx.fill();
+        });
+    }
+}
+function animateFireworks(){
+    fwCtx.clearRect(0,0,fireworksCanvas.width,fireworksCanvas.height);
+    fireworks.forEach(fw=>{
+        fw.update();
+        fw.draw();
+    });
+    fireworks = fireworks.filter(fw=>fw.particles.length>0);
+    requestAnimationFrame(animateFireworks);
+}
+animateFireworks();
+
+function launchFirework(){
+    const x = Math.random()*fireworksCanvas.width;
+    const y = Math.random()*fireworksCanvas.height/2;
+    const color = `${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)}`;
+    fireworks.push(new Firework(x,y,color));
+}
+
+// Gift click event
+
+gift.addEventListener('click', async ()=>{
+    if(opened) return;
+
+    lid.style.transform = 'rotate(-120deg)';
+    card.style.transform = 'translate(-50%, -50%) scale(1)';
+
+    // Play pop sound
+    document.getElementById('popSound').play();
+
+    createConfetti();
+    opened=true;
+    for(let i=0;i<8;i++){
+        setTimeout(launchFirework, i*500);
+    }
+
+    try { await music.play(); } catch(e){ console.log('Music autoplay prevented'); }
+    musicBtn.style.display = 'block';
+});
+
+let opened=false;
+gift.addEventListener('click', async ()=>{
+    if(opened) return;
+    lid.style.transform = 'rotate(-120deg)';
+    card.style.transform = 'translate(-50%, -50%) scale(1)';
+    createConfetti();
+    opened=true;
+    for(let i=0;i<8;i++){
+        setTimeout(launchFirework, i*500);
+    }
+    // Start music safely
+    try { await music.play(); } catch(e){ console.log('Music autoplay prevented'); }
+    musicBtn.style.display = 'block';
+});
+
+// Music toggle
+musicBtn.addEventListener('click',()=>{
+    if(music.muted){ music.muted=false; musicBtn.textContent='🔊 Mute'; }
+    else { music.muted=true; musicBtn.textContent='🔈 Unmute'; }
+});
+
+// Slideshow
+let slideIndex = 0;
+const slides = document.querySelectorAll('#slideshow img');
+setInterval(()=>{
+    slides[slideIndex].classList.remove('active');
+    slideIndex = (slideIndex+1)%slides.length;
+    slides[slideIndex].classList.add('active');
+},3000);
+
+// Secret message
+function showSecret(){
+    document.getElementById('secretMsg').style.display = 'block';
+}
+</script>
+</body>
+</html>
